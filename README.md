@@ -35,6 +35,8 @@ Note that **Bit Web Server** does not support Android 8 or higher, unlike **KSWE
 
 1. Open the Web Server App and write down the server's IP Address and port (usually, it's 8877)
 
+<img src="https://user-images.githubusercontent.com/41119320/55952225-bd5bbd80-5c61-11e9-87af-f1bb293e0c35.png" width="400" height="600" />
+
 2. Modifiy the **SERVER_IP_ADDRESS** in the files `\404.php` and `\redirect.sh`
 
 3. Configure the `lighttpd.conf` file using the Web Server App or Root Explorer:
@@ -43,12 +45,17 @@ Note that **Bit Web Server** does not support Android 8 or higher, unlike **KSWE
 * `server.dir-listing = "disable"` OR `dir-listing.activate = "disable"`
 * `server.error-handler-404 = "/404.php"`
 
-<img src="https://user-images.githubusercontent.com/41119320/55952233-bf258100-5c61-11e9-96c3-44ca240efeaf.png" width="200" height="400" />
+<img src="https://user-images.githubusercontent.com/41119320/55952233-bf258100-5c61-11e9-96c3-44ca240efeaf.png" width="400" height="600" />
 
 4. Using Root Explorer, you can copy all the files to your Web Server Root directory:
 
 * `404.php` to `/sdcard/www`
 * `splash` folder to `/sdcard/www`
+
+<img src="https://user-images.githubusercontent.com/41119320/55952226-bd5bbd80-5c61-11e9-92d8-5d2b046e48af.png" width="400" height="600" />
+
+<img src="https://user-images.githubusercontent.com/41119320/55952225-bd5bbd80-5c61-11e9-87af-f1bb293e0c35.png
+" width="400" height="600" />
 
 ### Changing the iptables to redirect the user
 
