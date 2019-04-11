@@ -54,25 +54,25 @@ You can simply copy the `redirect.sh` script to your Android Phone and execute i
 
 1. If you're using **adb**, connect your device to the computer and open a terminal:
 
-        `adb devices`
+        adb devices
 
 2. Open a remote shell:
 
-        `adb shell`
+        adb shell
 
 3. Elevate the privileges
 
-        `su - `
+        su - 
 
 4. Now navigate to your `redirect.sh` script and execute it:
 
-        `./redirect.sh`
+        ./redirect.sh
 
 5. To check the current iptables rules, you can execute:
 
-        `iptables -L`
+        iptables -L
 
-        `iptables -t nat -L`
+        iptables -t nat -L
 
 #### METHOD 2 - Using iptables2
 
@@ -80,23 +80,21 @@ You can use **iptables2** to insert the rules one by one
 
 1. Redirect the port 8877 of your Web server to the HTTP port 80
 
-        `iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8877`
+        iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8877
 
 2. Enable the DNS packets since the user will try to access the internet using a domain name, so he will be redirected to your captive portal
 
         ```
-
         iptables -A FORWARD -p udp --dport 53 -j ACCEPT
 
         iptables -A FORWARD -p udp --sport 53 -j ACCEPT
-        
         ```
 
 3. To redirect the user accessing the port 80 to your Web server
 
-        `iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination SERVER_IP_ADDRESS`
+        iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination SERVER_IP_ADDRESS
 
 4. Finally, the default iptable rule is to drop other packets
 
-        `iptables -P FORWARD DROP`
+        iptables -P FORWARD DROP
 
