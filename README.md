@@ -5,6 +5,8 @@ This project is about preparing a phishing attack on a certain captive portal. I
 We will learn how setup a Fake Captive Portal on a Web Server hosted by a rooted Android device.
 By creating an open hotspot with the same name as the open AP, a user might accidentally connect to your hotspot instead (especially if your WiFi signal is better). He will be immeditately redirected to your cloned but modified captive portal page, where he is required to insert sensitive information such as his email and password in order to access the WiFi.
 
+The credentials will be saved inside `\splash\C4M\credentials.txt`.
+
 **This project is clearly for educational purposes only.** The goal is to learn about the vulnerabilites of a captive portal, and how dangerous it is to have an open AP that can be easily suceptible to malicous attacks such as phishing, man in the middle, Rogue AP and Evil Twin.
 
 ### Prerequisites
@@ -31,21 +33,18 @@ Note that **Bit Web Server** does not support Android 8 or higher, unlike **KSWE
 
 1. Open the Web Server App and write down the server's IP Address and port (usually, it's 8877)
 
-2. Modifiy the **SERVER_IP_ADDRESS** in the following files accordingly:
-
-&nbsp;&nbsp;&nbsp;&nbsp; * `\404.php`
-&nbsp;&nbsp;&nbsp;&nbsp; * `\redirect.sh`
+2. Modifiy the **SERVER_IP_ADDRESS** in the files `\404.php` and `\redirect.sh`
 
 3. Configure the `lighttpd.conf` file using the Web Server App or Root Explorer:
 
-&nbsp;&nbsp;&nbsp;&nbsp; * `server.document-root = "/sdcard/www"`
-&nbsp;&nbsp;&nbsp;&nbsp; * `server.dir-listing = "disable"` OR `dir-listing.activate = "disable"`
-&nbsp;&nbsp;&nbsp;&nbsp; * `server.error-handler-404 = "/404.php"`
+* `server.document-root = "/sdcard/www"`
+* `server.dir-listing = "disable"` OR `dir-listing.activate = "disable"`
+* `server.error-handler-404 = "/404.php"`
 
 4. Using Root Explorer, you can copy all the files to your Web Server Root directory:
 
-&nbsp;&nbsp;&nbsp;&nbsp; * `404.php` to `/sdcard/www`
-&nbsp;&nbsp;&nbsp;&nbsp; * `splash` folder to `/sdcard/www`
+* `404.php` to `/sdcard/www`
+* `splash` folder to `/sdcard/www`
 
 ### Changing the iptables to redirect the user
 
@@ -84,11 +83,15 @@ You can use **iptables2** to insert the rules one by one
         `iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8877`
 
 2. Enable the DNS packets since the user will try to access the internet using a domain name, so he will be redirected to your captive portal
+
         ```
+
         iptables -A FORWARD -p udp --dport 53 -j ACCEPT
 
         iptables -A FORWARD -p udp --sport 53 -j ACCEPT
+        
         ```
+
 3. To redirect the user accessing the port 80 to your Web server
 
         `iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination SERVER_IP_ADDRESS`
