@@ -1,0 +1,1 @@
+<?php header("Location: http://SERVER_IP_ADDRESS/splash/C4M/welcome.php);?> 
