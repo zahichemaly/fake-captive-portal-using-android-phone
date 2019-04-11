@@ -43,7 +43,7 @@ Note that **Bit Web Server** does not support Android 8 or higher, unlike **KSWE
 * `server.dir-listing = "disable"` OR `dir-listing.activate = "disable"`
 * `server.error-handler-404 = "/404.php"`
 
-![Screenshot_20181207-074245](https://user-images.githubusercontent.com/41119320/55952233-bf258100-5c61-11e9-96c3-44ca240efeaf.png)
+<img src="https://user-images.githubusercontent.com/41119320/55952233-bf258100-5c61-11e9-96c3-44ca240efeaf.png" width="200" height="400" />
 
 4. Using Root Explorer, you can copy all the files to your Web Server Root directory:
 
