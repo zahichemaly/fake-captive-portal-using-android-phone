@@ -84,11 +84,9 @@ You can use **iptables2** to insert the rules one by one
 
 2. Enable the DNS packets since the user will try to access the internet using a domain name, so he will be redirected to your captive portal
 
-        ```
         iptables -A FORWARD -p udp --dport 53 -j ACCEPT
-
+        
         iptables -A FORWARD -p udp --sport 53 -j ACCEPT
-        ```
 
 3. To redirect the user accessing the port 80 to your Web server
 
