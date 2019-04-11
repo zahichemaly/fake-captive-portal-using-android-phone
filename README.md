@@ -1,10 +1,8 @@
 ## Fake Captive Portal Using Android Phone
 
-![Capture3](https://user-images.githubusercontent.com/41119320/55952223-bcc32700-5c61-11e9-879c-1ccc808b81aa.PNG)
-
-![Capture4](https://user-images.githubusercontent.com/41119320/55952224-bd5bbd80-5c61-11e9-9749-775c33d7a891.PNG)
-
 This project is about preparing a phishing attack on a certain captive portal. In my case, I used a cloned Dunkin Donuts portal.
+
+![Capture3](https://user-images.githubusercontent.com/41119320/55952223-bcc32700-5c61-11e9-879c-1ccc808b81aa.PNG)
 
 We will learn how setup a Fake Captive Portal on a Web Server hosted by a rooted Android device.
 By creating an open hotspot with the same name as the open AP, a user might accidentally connect to your hotspot instead (especially if your WiFi signal is better). He will be immeditately redirected to your cloned but modified captive portal page, where he is required to insert sensitive information such as his email and password in order to access the WiFi.
@@ -44,6 +42,8 @@ Note that **Bit Web Server** does not support Android 8 or higher, unlike **KSWE
 * `server.document-root = "/sdcard/www"`
 * `server.dir-listing = "disable"` OR `dir-listing.activate = "disable"`
 * `server.error-handler-404 = "/404.php"`
+
+![Screenshot_20181207-074245](https://user-images.githubusercontent.com/41119320/55952233-bf258100-5c61-11e9-96c3-44ca240efeaf.png)
 
 4. Using Root Explorer, you can copy all the files to your Web Server Root directory:
 
