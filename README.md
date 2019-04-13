@@ -54,7 +54,6 @@ Note that **Bit Web Server** does not support Android 8 or higher, unlike **KSWE
 
 <img src="https://user-images.githubusercontent.com/41119320/55952226-bd5bbd80-5c61-11e9-92d8-5d2b046e48af.png" width="350" height="600" />
 
-<img src="https://user-images.githubusercontent.com/41119320/55952225-bd5bbd80-5c61-11e9-87af-f1bb293e0c35.png" width="350" height="600" />
 
 ### Changing the iptables to redirect the user
 
